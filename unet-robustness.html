@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNet Robustness Across DRIVE / BUSI / PH²</title>
+  <style>
+    :root{
+      --primary:#cbaadf;
+      --accent:#a2a5ed;
+      --bg:#1a191a;
+      --text:#f4f0f6;
+      --muted:#d3ced9;
+      --card:#2a2730;
+      --radius:12px;
+      --maxw:900px;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);padding-bottom:60px}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    h1{font-size:32px;margin:0;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip: text; background-clip: text;color: transparent;color:transparent}
+    h2{margin-top:40px;font-size:22px;color:var(--text)}
+    p{line-height:1.6;color:var(--muted);max-width:70ch}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);margin-top:16px}
+    .figure-img{width:100%;border-radius:10px;margin-top:12px}
+    .btns{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--primary);color:#1a1a1a;border:none}
+    .btn-ghost{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>UNet Robustness Across Modalities</h1>
+    <p>This sub-study extends the Catastrophic Failure Rate framework to deep neural segmentation models. We analyze how a standard UNet behaves under noise, corruption, and modality shift across three medical imaging datasets.</p>
+
+    <div class="btns">
+      <a href="index.html" class="btn-ghost">← Back</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+    <h2>Motivation</h2>
+    <div class="card">
+      <p>Deep segmentation models are often evaluated using clean test sets. This experiment asks a simple question: does strong average Dice imply robustness? By systematically corrupting inputs, we reveal failure patterns that average metrics alone fail to expose.</p>
+    </div>
+
+    <h2>Datasets</h2>
+    <div class="card">
+      <p><strong>DRIVE:</strong> retinal vessel segmentation (grayscale)</p>
+      <p><strong>BUSI:</strong> breast ultrasound lesion segmentation</p>
+      <p><strong>PH²:</strong> dermoscopy lesion segmentation</p>
+      <p>These datasets represent different imaging modalities, textures, and noise characteristics.</p>
+    </div>
+
+    <h2>Experimental Setup</h2>
+    <div class="card">
+      <p>A standard UNet architecture was trained independently on each dataset. At test time, Gaussian noise and corruption levels were applied to simulate acquisition degradation. Dice score and CF Rate trends were tracked under increasing noise.</p>
+      <img src="unet_pipeline.png" class="figure-img" alt="UNet robustness evaluation pipeline">
+    </div>
+
+    <h2>Results</h2>
+    <div class="card">
+      <p>Robustness behavior varied strongly by modality. Retinal images (DRIVE) showed gradual degradation, while ultrasound images (BUSI) exhibited abrupt collapse under moderate noise. PH² displayed intermediate behavior.</p>
+      <img src="dice_vs_noise.png" class="figure-img" alt="Dice versus noise level across datasets">
+    </div>
+
+    <h2>Failure Analysis</h2>
+    <div class="card">
+      <p>Failure cases reveal that texture complexity, speckle noise, and boundary ambiguity play a key role in robustness collapse. These findings support the broader claim that safety-oriented metrics are required even for deep models.</p>
+      <img src="unet_failures.png" class="figure-img" alt="Representative UNet failure cases">
+    </div>
+
+    <h2>Key Takeaways</h2>
+    <div class="card">
+      <ul style="color:var(--muted);line-height:1.6">
+        <li>High clean-set Dice does not guarantee robustness.</li>
+        <li>Modality shift strongly affects failure behavior.</li>
+        <li>Ultrasound segmentation is especially fragile.</li>
+        <li>CF Rate complements Dice for deep models.</li>
+      </ul>
+    </div>
+
+    <h2>Resources</h2>
+    <div class="btns">
+      <a href="#" class="btn">View Code</a>
+      <a href="#" class="btn-ghost">Related CF Rate Study</a>
+    </div>
+
+  </div>
+</body>
+</html>

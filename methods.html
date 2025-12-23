@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Statistical & Reproducible Evaluation — Methods</title>
+  <style>
+    :root{
+      --primary:#cbaadf;
+      --accent:#a2a5ed;
+      --bg:#1a191a;
+      --text:#f4f0f6;
+      --muted:#d3ced9;
+      --card:#2a2730;
+      --radius:12px;
+      --maxw:900px;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);padding-bottom:60px}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    h1{font-size:32px;margin:0;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip: text; background-clip: text;color: transparent;color:transparent}
+    h2{margin-top:40px;font-size:22px;color:var(--text)}
+    p{line-height:1.6;color:var(--muted);max-width:70ch}
+    ul{color:var(--muted);line-height:1.6}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);margin-top:16px}
+    .figure-img{width:100%;border-radius:10px;margin-top:12px}
+    .btns{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--primary);color:#1a1a1a;border:none}
+    .btn-ghost{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Statistical & Reproducible Evaluation</h1>
+    <p>This page describes the methodological backbone used across my research projects. The focus is on reproducibility, statistical validity, and failure-aware evaluation rather than model-specific optimization.</p>
+
+    <div class="btns">
+      <a href="index.html" class="btn-ghost">← Back</a>
+      <a href="#" class="btn">View Utilities</a>
+    </div>
+
+    <h2>Why Methodology Matters</h2>
+    <div class="card">
+      <p>Medical AI systems are often evaluated using single-point estimates on clean test sets. This practice obscures variance, hides rare failure modes, and weakens conclusions. The methods described here were chosen to make evaluation more robust, transparent, and reproducible.</p>
+    </div>
+
+    <h2>Statistical Testing</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Wilcoxon signed-rank test:</strong> non-parametric comparison of paired Dice distributions.</li>
+        <li><strong>Bootstrap confidence intervals:</strong> uncertainty estimation for proportions such as CF Rate.</li>
+        <li><strong>Effect size reporting:</strong> complements p-values with magnitude-aware interpretation.</li>
+      </ul>
+      <img src="statistical_tests.png" class="figure-img" alt="Statistical testing workflow">
+    </div>
+
+    <h2>Failure-Aware Metrics</h2>
+    <div class="card">
+      <p>Beyond mean Dice, tail behavior is explicitly analyzed. Threshold-based failure counting (e.g., Dice &lt; 0.10) is used to capture clinically unacceptable outcomes that average metrics suppress.</p>
+    </div>
+
+    <h2>Experimental Reproducibility</h2>
+    <div class="card">
+      <ul>
+        <li>Deterministic random seeds for training and evaluation.</li>
+        <li>Dataset versioning and fixed splits.</li>
+        <li>Scripted experiment pipelines.</li>
+        <li>Dockerized environments for portability.</li>
+      </ul>
+      <img src="reproducibility_pipeline.png" class="figure-img" alt="Reproducible experiment pipeline">
+    </div>
+
+    <h2>Visualization & Reporting</h2>
+    <div class="card">
+      <p>All experiments are accompanied by figure-driven analysis: Dice distributions, noise-response curves, and failure examples. Visual inspection is treated as a first-class evaluation tool rather than an afterthought.</p>
+    </div>
+
+    <h2>How This Supports My Research</h2>
+    <div class="card">
+      <p>These methods unify my work on Catastrophic Failure Rate, UNet robustness, and applied pipelines. By prioritizing evaluation rigor, they help ensure that conclusions are reliable and transferable across datasets and models.</p>
+    </div>
+
+    <h2>Resources</h2>
+    <div class="btns">
+      <a href="#" class="btn">Evaluation Code</a>
+      <a href="#" class="btn-ghost">Related Projects</a>
+    </div>
+
+  </div>
+</body>
+</html>

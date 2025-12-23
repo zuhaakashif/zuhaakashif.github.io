@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zuha Fatima — Medical AI Researcher</title>
+  <style>
+    :root{
+    --primary:#cbaadf;
+    --accent:#a2a5ed;
+    --bg:#1a191a;
+    --text:#f4f0f6;
+    --muted:#d3ced9;
+    --card:#2a2730;
+    --radius:12px;
+    --maxw:900px;
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);padding-bottom:60px}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    h1{font-size:32px;margin:0;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip: text; background-clip: text;color: transparent;color:transparent}
+    h2{margin-top:40px;font-size:22px;color:var(--text)}
+    p{line-height:1.6;color:var(--muted);max-width:70ch}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);margin-top:16px}
+    .figure{background:#3a3742;border-radius:10px;height:220px;margin-top:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px}
+    .figure-img {width: 100%;border-radius: 10px;margin-top: 12px;}
+    .btns{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--primary);color:#1a1a1a;border:none}
+    .btn-ghost{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Catastrophic Failure Rate</h1>
+    <p>A compact overview of the core research study analyzing how traditional metrics hide rare but dangerous segmentation failures. This page summarizes the core idea, method, visuals, and findings without overwhelming details.</p>
+
+    <div class="btns">
+      <a href="index.html" class="btn-ghost">← Back</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+    <h2>Overview</h2>
+    <div class="card">
+      <p>Catastrophic Failure Rate (CF Rate) quantifies the proportion of extremely poor predictions that remain invisible when using only average metrics like Dice. Even models with high mean Dice can produce a small subset of dangerous failures — the goal of this work is to detect, visualize, and statistically validate these events.</p>
+    </div>
+
+    <h2>Method</h2>
+    <div class="card">
+      <p>For each image, Dice is computed and mapped into a distribution. Instead of averaging these values, we examine the tail: Dice &lt; 0.10 is counted as a catastrophic failure. Statistical tests (Wilcoxon, bootstrapped CI) validate whether such failures are non-random.</p>
+      <img src="assets/figures/systemmodel.png" class="figure-img" alt="System Model">
+    </div>
+
+    <h2>Dataset</h2>
+    <div class="card">
+      <p>The study uses the PH² dermoscopy dataset (200 images). Classical segmentation methods (Otsu, K-means, active contour, region-based pipelines) were used to highlight that CF Rate is architecture-agnostic.</p>
+    </div>
+
+    <h2>Results</h2>
+    <div class="card">
+      <p>Several classical models achieved reasonable mean Dice but still exhibited catastrophic failures. The highest CF Rate observed was 25% on a clustering-based pipeline. Statistical significance (Wilcoxon p = 0.010) confirms these failure clusters are systematic.</p>
+      <img src="assets/figures/dice_scores_boxplot.png" class="figure-img" alt="Dice Scores">
+    </div>
+
+    <h2>Failure Cases</h2>
+    <div class="card">
+      <p>Representative samples show that abrupt texture, border variation, and low contrast regions frequently trigger collapse. These examples emphasize why CF Rate must complement average performance metrics.</p>
+      <img src="assets/figures/figure3.png" class="figure-img" alt="Failure Cases">
+    </div>
+
+    <h2>Key Takeaways</h2>
+    <div class="card">
+      <ul style="color:var(--muted);line-height:1.6">
+        <li>Average metrics hide rare but impactful failures.</li>
+        <li>CF Rate provides a safety-oriented view of performance.</li>
+        <li>Statistical tests verify the non-random nature of collapse.</li>
+        <li>Works across classical and deep models.</li>
+      </ul>
+    </div>
+
+    <h2>Resources</h2>
+    <div class="btns">
+      <a href="#" class="btn">View Code</a>
+      <a href="#" class="btn-ghost">Download PDF</a>
+    </div>
+
+  </div>
+</body>
+</html>

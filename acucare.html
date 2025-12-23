@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AcuCare — Mobile Acne Analysis Pipeline</title>
+  <style>
+    :root{
+      --primary:#cbaadf;
+      --accent:#a2a5ed;
+      --bg:#1a191a;
+      --text:#f4f0f6;
+      --muted:#d3ced9;
+      --card:#2a2730;
+      --radius:12px;
+      --maxw:900px;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);padding-bottom:60px}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    h1{font-size:32px;margin:0;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip: text; background-clip: text;color: transparent;color:transparent}
+    h2{margin-top:40px;font-size:22px;color:var(--text)}
+    p{line-height:1.6;color:var(--muted);max-width:70ch}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);margin-top:16px}
+    .figure-img{width:100%;border-radius:10px;margin-top:12px}
+    .btns{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--primary);color:#1a1a1a;border:none}
+    .btn-ghost{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>AcuCare — Mobile Acne Analysis</h1>
+    <p>AcuCare is an applied computer vision project focused on lightweight, interpretable acne analysis for mobile devices. The pipeline emphasizes efficiency, transparency, and practical deployment rather than heavy deep learning models.</p>
+
+    <div class="btns">
+      <a href="index.html" class="btn-ghost">← Back</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+    <h2>Motivation</h2>
+    <div class="card">
+      <p>Many dermatology-focused mobile applications rely on large neural networks that are difficult to interpret and deploy on low-resource devices. AcuCare explores whether classical image processing and lightweight machine learning can provide usable performance while remaining interpretable and efficient.</p>
+    </div>
+
+    <h2>Pipeline Overview</h2>
+    <div class="card">
+      <p>The pipeline consists of image preprocessing, lesion segmentation, handcrafted feature extraction, and acne severity classification. Each stage is designed to be explainable and computationally inexpensive.</p>
+      <img src="acucare_pipeline.png" class="figure-img" alt="AcuCare pipeline overview">
+    </div>
+
+    <h2>Methods</h2>
+    <div class="card">
+      <p>Segmentation is performed using classical thresholding and morphological operations. Texture and color features are extracted to represent lesion characteristics. A lightweight classifier is used for severity prediction.</p>
+    </div>
+
+    <h2>Results</h2>
+    <div class="card">
+      <p>The system achieved an accuracy of 87.7% on a held-out test set, demonstrating that interpretable pipelines can remain competitive for constrained deployment scenarios.</p>
+      <img src="acucare_results.png" class="figure-img" alt="AcuCare classification results">
+    </div>
+
+    <h2>Why This Matters</h2>
+    <div class="card">
+      <p>This project complements my research on AI reliability by emphasizing transparency and failure awareness. While AcuCare is not a safety-critical system, its design philosophy aligns with broader goals of responsible and interpretable medical AI.</p>
+    </div>
+
+    <h2>Key Takeaways</h2>
+    <div class="card">
+      <ul style="color:var(--muted);line-height:1.6">
+        <li>Lightweight pipelines can perform competitively.</li>
+        <li>Interpretability aids debugging and trust.</li>
+        <li>Mobile constraints require design trade-offs.</li>
+        <li>Classical methods remain relevant in applied settings.</li>
+      </ul>
+    </div>
+
+    <h2>Resources</h2>
+    <div class="btns">
+      <a href="#" class="btn">View Code</a>
+      <a href="#" class="btn-ghost">Demo Screenshots</a>
+    </div>
+
+  </div>
+</body>
+</html>

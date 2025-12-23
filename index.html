@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zuha Fatima — Medical AI Researcher</title>
+  <style>
+    :root{
+      --primary:#cbaadf; /* royal blue */
+      --accent:#a2a5ed;  /* deep purple */
+      --bg:#1a191a;      /*#1a191a*/
+      --text:#1e1c1e;
+      --muted:#e2dde7;
+      --card:#c8cddf;
+      --maxw:1080px;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand div div:first-child {
+      color: #ffffff;
+    }
+
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:18px}
+    nav a{font-weight:600;color:var(--muted)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:32px;align-items:center;padding:36px 0}
+    .hero h1 {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;   /* for Chrome, Safari */
+    background-clip: text;           /* standard, for future compatibility */
+    color: transparent;
+    }
+    .hero-visual {
+    border: 1px solid #dfe5ff;
+    }
+
+
+    .hero .subtitle{color:var(--muted);margin-top:8px;max-width:44ch}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;font-weight:600;border:none;cursor:pointer}
+    .btn-primary{background:var(--primary);color:white}
+    .btn-ghost{background:transparent;color:var(--primary);border:1px solid rgba(47,93,250,0.12)}
+    .hero-visual{background:var(--card);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+    .visual-top{display:flex;gap:10px}
+    .image-rect{flex:1;height:120px;border-radius:8px;background:linear-gradient(180deg,#695787,#5877de);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .plot{height:96px;border-radius:8px;background:linear-gradient(90deg,#695787,#5877de);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    /* Sections */
+    section{padding:60px 0;border-top:1px solid #f1f3fb}
+    h2{font-size:22px;margin:0 0 12px;color: #e2dde7;}
+    .muted{color:var(--muted)}
+
+    /* Research grid */
+    .research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .card{background:#b387ad;border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(20,30,60,0.04);min-height:160px;display:flex;flex-direction:column;transition: all 0.25s ease}
+    .card:hover {transform: translateY(-4px);box-shadow: 0 10px 24px rgba(20,30,60,0.08);}
+    .card .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+    .card .metrics{display:flex;gap:12px;margin-top:auto}
+    .metric{background:linear-gradient(90deg,#f6f9ff,#fff);padding:8px 10px;border-radius:8px;font-weight:700}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project-small{background:linear-gradient(180deg,#c8aff0,#42115b);padding:14px;border-radius:10px;transition: all 0.25s ease;}
+    .project-small:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(20,30,60,0.06);
+        cursor: pointer;
+        }
+    .project-small .title{font-weight:700}
+
+    /* Publications */
+    .pub{display:flex;gap:14px;align-items:flex-start}
+    .pub .pdf{width:120px;height:84px;border-radius:8px;background:linear-gradient(135deg,#834089,#c2d3e5);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .pub .meta{flex:1}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:start}
+    .about-grid p {
+      color: #ffffff;
+    }
+    .avatar{width:160px;height:160px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--primary));display:flex;align-items:center;justify-content:center;color:white;font-size:26px;font-weight:700}
+    .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .badge{background:#f2f5ff;padding:6px 8px;border-radius:8px;font-weight:600;color:#1e1c1e}
+
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .research-grid{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+    }
+    @media (max-width:620px){
+      .projects-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ZF</div>
+        <div>
+          <div style="font-weight:800">Zuha Fatima</div>
+          <div style="font-size:12px;color:var(--muted)">Medical AI Researcher</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <h1>Zuha Fatima — Medical AI Researcher</h1>
+        <div class="subtitle">I study the reliability and hidden failure modes of medical AI systems. My work focuses on robust evaluation, safety‑oriented metrics and interpretable pipelines for clinical imaging.</div>
+        <div class="cta">
+          <button class="btn btn-primary" onclick="location.href='#research'">View Research</button>
+          <button class="btn btn-ghost" onclick="window.open('https://github.com/zuhaakashif')">GitHub</button>
+          <button class="btn" onclick="window.open('mailto:zuha.fatima317@gmail.com')">Contact</button>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="visuals: segmentation and plots">
+        <div class="visual-top">
+          <div class="image-rect">PH²: Original</div>
+          <div class="image-rect">Segmentation Mask</div>
+        </div>
+        <div class="plot">Dice vs Noise (sample)</div>
+        <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+          <div style="font-weight:700">CF Rate: 25%</div>
+          <div style="font-size:13px;color:#695787">Wilcoxon p = 0.010</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
+      <p class="muted">My work explores failure modes, robustness testing and safety-aware evaluation for medical imaging systems.</p>
+
+
+    <div class="research-grid" style="margin-top:18px">
+
+
+    <!-- CF Rate (Main Project) -->
+      <a href="cf-rate.html" class="card" style="text-decoration:none;display:block;color:inherit">
+        <div class="meta">First-author — Under Review</div>
+        <div style="font-size:18px;font-weight:700">Catastrophic Failure Rate: A Safety-Oriented Audit</div>
+        <div class="muted" style="margin-top:8px">Introduced CF Rate metric; benchmarked classical clustering on PH²; statistical tests reveal hidden failure clusters.</div>
+        <div class="metrics">
+          <div class="metric">CF = 25%</div>
+          <div class="metric">Wilcoxon p = 0.010</div>
+        </div>
+      </a>
+
+
+    <!-- UNet Robustness (Subproject) -->
+      <a href="unet-robustness.html" class="card" style="text-decoration:none;display:block;color:inherit">
+        <div class="meta">Lead Researcher</div>
+        <div style="font-size:18px;font-weight:700">UNet Robustness Across DRIVE / BUSI / PH²</div>
+        <div class="muted" style="margin-top:8px">Comparative analysis of corruption robustness; modality-specific collapse analysis and mitigation suggestions.</div>
+        <div class="metrics">
+          <div class="metric">Datasets: 3</div>
+          <div class="metric">Noise tests: 5</div>
+        </div>
+      </a>
+
+
+    <!-- AcuCare (Subproject) -->
+      <a href="acucare.html" class="card" style="text-decoration:none;display:block;color:inherit">
+        <div class="meta">Lead Developer & Researcher</div>
+        <div style="font-size:18px;font-weight:700">AcuCare — Mobile Acne Pipeline</div>
+        <div class="muted" style="margin-top:8px">Lightweight interpretable pipeline for mobile acne classification using handcrafted features and classical segmentation.</div>
+        <div class="metrics">
+          <div class="metric">Accuracy 87.7%</div>
+          <div class="metric">Mobile-ready</div>
+        </div>
+      </a>
+
+
+    <!-- Statistical Methods (Subproject) -->
+      <a href="methods.html" class="card" style="text-decoration:none;display:block;color:inherit">
+        <div class="meta">Tools & Methods</div>
+        <div style="font-size:18px;font-weight:700">Statistical & Reproducible Evaluation</div>
+        <div class="muted" style="margin-top:8px">Wilcoxon tests, logit CI, reproducible notebooks, Dockerized experiments and clear figure-driven analysis.</div>
+        <div class="metrics">
+          <div class="metric">Reproducible</div>
+          <div class="metric">Statistical rigor</div>
+        </div>
+      </a>
+
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      
+      <div style="margin-top:18px">
+        <h3 style="margin-bottom:10px;color: #e8d9f7;">Research Projects</h3>
+        <div class="projects-grid" style="margin-bottom:18px">
+          <a href="https://github.com/zuhaakashif/The-Catastrophic-Failure-Rate-Framework"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+
+            <div class="title">CF Rate Benchmark — PH²</div>
+            <div class="muted" style="margin-top:6px">Metric + experiments + code</div>
+
+          </a>
+
+          <a href="https://github.com/zuhaakashif/The-Catastrophic-Failure-Rate-Framework"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+
+            <div class="title">UNet Robustness Suite</div>
+            <div class="muted" style="margin-top:6px">Noise stress testing across DRIVE, BUSI, PH²</div>
+
+          </a>
+          <a href="https://github.com/zuhaakashif/AcuCare-Demo"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+
+            <div class="title">AcuCare Mobile Pipeline</div>
+            <div class="muted" style="margin-top:6px">Lightweight ML for mobile</div>
+          </a>
+          
+        </div>
+        <h3 style="margin-bottom:10px;color: #e8d9f7;">Other Projects</h3>
+        <div class="projects-grid" style="grid-template-columns:repeat(3,1fr);margin-top:6px">
+          <a href="https://github.com/zuhaakashif/centralized-rag-chatbot"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+            <div class="title">RAG Chatbot</div>
+            <div class="muted">TF-IDF + Mistral demo</div>
+          </a>
+          <a href="https://github.com/zuhaakashif/UniShelf"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+            <div class="title">Flutter Apps</div>
+            <div class="muted">Mobile UX & API integration</div>
+          </a>
+          <a href="https://github.com/zuhaakashif/AcuCare-Demo"
+            target="_blank"
+            class="project-small"
+            style="text-decoration:none;color:inherit;display:block">
+            <div class="title">Web Dev</div>
+            <div class="muted">Responsive sites</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <div style="margin-top:18px">
+        <div class="pub">
+          <div class="pdf">PDF</div>
+          <div class="meta">
+            <div style="font-weight:700;color: #f1e3ff;">Quantifying Catastrophic Failures in Classical Dermatology Segmentation</div>
+            <div class="muted" style="margin-top:6px">Submitted to Biomedical Signal Processing and Control — under review</div>
+            <p class="muted" style="margin-top:8px">This manuscript introduces the CF Rate metric and demonstrates how average scores can hide catastrophic failures in dermatology segmentation pipelines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-grid" style="margin-top:18px">
+        <div class="avatar">ZF</div>
+        <div>
+          <p style="margin-top:0">I am a medical AI researcher focused on reliability, reproducibility and failure analysis. My research uses classical and modern techniques to study when and why clinical AI systems fail.</p>
+          <div class="skills">
+            <div class="badge">Python</div>
+            <div class="badge">Medical Imaging</div>
+            <div class="badge">UNet & Segmentation</div>
+            <div class="badge">Statistical Testing</div>
+            <div class="badge">Docker</div>
+            <div class="badge">Flutter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">I’m open to research collaborations, supervision opportunities, and academic positions related to medical imaging and AI reliability.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="mailto:zuha.fatima317@gmail.com">Email</a>
+        <a class="btn btn-ghost" href="https://github.com/zuhaakashif" target="_blank">GitHub</a>
+        <a class="btn" href="#" onclick="location.href='#publications'">Download CV</a>
+      </div>
+    </section>
+
+    <footer>© "Zuha Fatima" — Medical AI Researcher • Built for academic applications</footer>
+  </div>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a, .btn').forEach(el=>{
+      el.addEventListener('click',e=>{
+        const href = el.getAttribute('href');
+        if(href && href.startsWith('#')){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
